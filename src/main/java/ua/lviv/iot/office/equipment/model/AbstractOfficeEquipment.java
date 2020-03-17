@@ -8,6 +8,15 @@ public abstract class AbstractOfficeEquipment {
   private double weightInKilograms;
   private CableForPower cableForPower;
 
+  public String getHeaders() {
+    return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + producerName + "," + priceInUaH + ","
+        + color + "," + weightInKilograms + "," + cableForPower;
+  }
+
   public double getWeightInKilograms() {
     return weightInKilograms;
   }
