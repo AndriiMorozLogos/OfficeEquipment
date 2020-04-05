@@ -26,4 +26,8 @@ public class Mouse extends AbstractOfficeEquipment {
     super(productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower);
     this.numberOfButton = numberOfButton;
   }
+
+  public Mouse() {
+
+  }
 }
