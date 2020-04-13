@@ -3,6 +3,16 @@ package ua.lviv.iot.office.equipment.model;
 public class Printer extends AbstractOfficeEquipment {
   private TypeOfPrinter typeOfPrinter;
 
+  @Override
+  public String getHeaders() {
+    return super.getHeaders() + "," + "typeOfPrinter";
+  }
+
+  @Override
+  public String toCSV() {
+    return super.toCSV() + "," + typeOfPrinter;
+  }
+
   public TypeOfPrinter getTypeOfPrinter() {
     return typeOfPrinter;
   }

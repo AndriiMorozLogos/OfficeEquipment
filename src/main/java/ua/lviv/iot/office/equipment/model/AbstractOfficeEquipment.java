@@ -1,5 +1,10 @@
 package ua.lviv.iot.office.equipment.model;
 
+
+import javax.persistence.*;
+
+
+@MappedSuperclass
 public abstract class AbstractOfficeEquipment {
   private int productionYear;
   private String producerName;
@@ -7,6 +12,18 @@ public abstract class AbstractOfficeEquipment {
   private String color;
   private double weightInKilograms;
   private CableForPower cableForPower;
+
+
+
+
+  public String getHeaders() {
+    return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + producerName + "," + priceInUaH + ","
+        + color + "," + weightInKilograms + "," + cableForPower;
+  }
 
   public double getWeightInKilograms() {
     return weightInKilograms;
@@ -66,4 +83,9 @@ public abstract class AbstractOfficeEquipment {
     this.weightInKilograms = weightInKilograms;
     this.cableForPower = cableForPower;
   }
+
+  public AbstractOfficeEquipment() {
+
+  }
+
 }
