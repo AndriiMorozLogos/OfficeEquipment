@@ -1,6 +1,7 @@
 package ua.lviv.iot.office.equipment.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.lviv.iot.office.equipment.business.MouseService;
 
 import ua.lviv.iot.office.equipment.model.Mouse;
+
+
 
 @RequestMapping("/mouses")
 @RestController
@@ -17,8 +20,13 @@ public class MouseController {
   private MouseService mouseService;
 
   @GetMapping
-  public List<Mouse> getMouses() {
-    return mouseService.getMouses();
+  public List<Mouse> getMouses(
+      final @RequestParam(name = "producerName", required = false) String producerName) {
+    if (producerName == null) {
+      return mouseService.findAll();
+
+    }
+    return mouseService.getAllByProducerName(producerName);
 
   }
 
@@ -43,6 +51,7 @@ public class MouseController {
   @DeleteMapping(path = {"/{id}"})
   public ResponseEntity<Mouse> deleteMouse(@PathVariable("id") Integer mouseId) {
     HttpStatus status = mouseService.deleteMouse(mouseId) ? HttpStatus.OK : HttpStatus.NOT_FOUND;
+
     return ResponseEntity.status(status).build();
   }
 

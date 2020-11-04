@@ -1,6 +1,7 @@
 package ua.lviv.iot.office.equipment.business;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.office.equipment.dataaccess.MouseRepository;
@@ -12,10 +13,6 @@ public class MouseService {
 
   @Autowired
   private MouseRepository mouseRepository;
-
-  public List<Mouse> getMouses() {
-    return mouseRepository.findAll();
-  }
 
   public Mouse getMouse(Integer id) {
     if (mouseRepository.existsById(id)) {
@@ -47,4 +44,14 @@ public class MouseService {
       return null;
     }
   }
+
+  public List<Mouse> findAll() {
+    return mouseRepository.findAll();
+  }
+
+  public List<Mouse> getAllByProducerName(String producerName) {
+    return mouseRepository.findAllByProducerName(producerName);
+
+  }
+
 }

@@ -1,13 +1,8 @@
 package ua.lviv.iot.office.equipment.model;
 
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-
-@Entity
+@MappedSuperclass
 public abstract class AbstractOfficeEquipment {
   private int productionYear;
   private String producerName;
@@ -55,6 +50,18 @@ public abstract class AbstractOfficeEquipment {
   public void setId(Integer id) {
     this.id = id;
   }
+
+  public String getHeaders() {
+    return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + producerName + "," + priceInUaH + ","
+        + color + "," + weightInKilograms + "," + cableForPower;
+  }
+
+
+
 
   public String getHeaders() {
     return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
@@ -127,4 +134,5 @@ public abstract class AbstractOfficeEquipment {
   public AbstractOfficeEquipment() {
 
   }
+
 }
