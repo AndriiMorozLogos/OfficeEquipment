@@ -15,6 +15,33 @@ public abstract class AbstractOfficeEquipment {
   private String color;
   private double weightInKilograms;
   private CableForPower cableForPower;
+  private Integer id;
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getHeaders() {
+    return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + producerName + "," + priceInUaH + ","
+        + color + "," + weightInKilograms + "," + cableForPower;
+  }
+
+  public String getHeaders() {
+    return "productionYear, producerName, priceInUaH, color, weightInKilograms, cableForPower";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + producerName + "," + priceInUaH + ","
+        + color + "," + weightInKilograms + "," + cableForPower;
+  }
 
 
   @Id
