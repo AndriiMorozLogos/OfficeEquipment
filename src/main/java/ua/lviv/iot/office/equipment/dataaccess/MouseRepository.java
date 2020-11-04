@@ -1,5 +1,6 @@
 package ua.lviv.iot.office.equipment.dataaccess;
 
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,10 +1,7 @@
 package ua.lviv.iot.office.equipment.model;
 
-
 import javax.persistence.*;
-
 import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -51,7 +48,6 @@ public class Mouse extends AbstractOfficeEquipment {
   public void setOfficeEquipmentStore(OfficeEquipmentStore officeEquipmentStore) {
     this.officeEquipmentStore = officeEquipmentStore;
   }
-
   @Override
   public String getHeaders() {
     return super.getHeaders() + "," + "numberOfButton ";
