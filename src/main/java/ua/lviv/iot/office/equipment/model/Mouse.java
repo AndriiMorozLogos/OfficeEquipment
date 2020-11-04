@@ -1,5 +1,8 @@
 package ua.lviv.iot.office.equipment.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Mouse extends AbstractOfficeEquipment {
   private int numberOfButton;
 
